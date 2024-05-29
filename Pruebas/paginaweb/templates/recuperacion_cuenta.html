@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex items-center justify-center min-h-screen bg-blue-100 dark:bg-blue-900">
+    <div class="bg-gradient-to-br from-blue-400 to-blue-600 p-8 rounded-lg shadow-lg w-80">
+        <h2 class="text-2xl font-bold text-center text-black dark:text-white mb-6">Recuperar contraseña</h2>
+        <form data-bitwarden-watching="1" id="recovery-form">
+            <div class="mb-4 relative">
+                <input type="text" placeholder="Correo Electrónico" class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" id="submit-btn" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar enlace de recuperación</button>
+            <p class="text-center text-sm text-blue-500 dark:text-blue-300 mt-4">¿Recuerdas tu contraseña? <a href="#" class="font-medium text-blue-500 dark:text-blue-300">Inicia sesión</a></p>
+        </form>
+    </div>
+</div>
+<script>
+    const form = document.getElementById('recovery-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Simulate sending recovery link
+        alert('Enlace enviado correctamente');
+    });
+</script>
+  </body>
+</html>
