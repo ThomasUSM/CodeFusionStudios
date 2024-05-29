@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Apps.LoginAuthentication',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -116,8 +119,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'Apps', 'LoginAuthentication', 'static'),  # Example for LoginAuthentication app
+    # Repeat for other apps within the "Apps" folder if they have static files
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AXES_FAILURE_LIMIT = 3  # Número de intentos fallidos permitidos antes del bloqueo
+AXES_COOLOFF_TIME = 1/120  # Duración del bloqueo en horas (1/120 horas = 30 segundos)
+AXES_LOCK_OUT_AT_FAILURE = True  # Bloquear después de alcanzar el límite de intentos fallidos
+AXES_LOCKOUT_PARAMETERS = ["ip_address", ["username", "user_agent"]]
