@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex items-center justify-center min-h-screen bg-blue-100 dark:bg-blue-900">
+    <div class="bg-gradient-to-br from-blue-400 to-blue-600 p-8 rounded-lg shadow-lg w-80">
+        <h2 class="text-2xl font-bold text-center text-black dark:text-white mb-6">Confirmar cambio de contraseña</h2>
+        <form data-bitwarden-watching="1" id="confirmation-form">
+            <div class="mb-4 relative">
+                <input type="password" placeholder="Nueva Contraseña" class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500" id="new-password">
+                <button type="button" id="toggle-new-password" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-blue-500 dark:text-blue-300 focus:outline-none">
+                    <img aria-hidden="true" alt="eye" src="https://placehold.co/20" id="eye-icon">
+                </button>
+            </div>
+            <div class="mb-4 relative">
+                <input type="password" placeholder="Confirmar Contraseña" class="w-full p-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500" id="confirm-password">
+                <button type="button" id="toggle-confirm-password" class="absolute top-1/2 right-3 transform -translate-y-1/2 text-blue-500 dark:text-blue-300 focus:outline-none">
+                    <img aria-hidden="true" alt="eye" src="https://placehold.co/20" id="eye-icon">
+                </button>
+            </div>
+            <button type="submit" id="confirm-btn" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Confirmar cambio</button>
+            <p class="text-center text-sm text-blue-500 dark:text-blue-300 mt-4">¿Recuerdas tu contraseña? <a href="#" class="font-medium text-blue-500 dark:text-blue-300">Inicia sesión</a></p>
+        </form>
+    </div>
+</div>
+<script>
+    const confirmationForm = document.getElementById('confirmation-form');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const newPasswordInput = document
+  </body>
+</html>
