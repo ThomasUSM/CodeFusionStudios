@@ -7,6 +7,7 @@ from axes.models import AccessAttempt
 from django.utils import timezone
 from django.http import JsonResponse
 from .models import CustomUser
+from .models import Clase
 
 def index_view(request):
     return render(request, 'LoginAuthentication/index.html')
@@ -49,8 +50,21 @@ def login_view(request):
 
 @login_required
 def home_view(request):
-    profesores = CustomUser.objects.filter(user_type='profesor')
-    return render(request, 'LoginAuthentication/home.html', context={'profesores': profesores})
+    try:
+        profesores = CustomUser.objects.filter(user_type='profesor')
+        
+        if not profesores.exists():
+            messages.warning(request, 'No se han encontrado profesores.')
+        
+    except CustomUser.DoesNotExist:
+        messages.error(request, 'Error al recuperar la lista de profesores.')
+        profesores = []  # Lista vacía si no hay profesores.
+    try:
+        clases = Clase.objects.all()
+    except Clase.DoesNotExist:
+        messages.error(request, 'Error al recuperar las listas de clase.')
+
+    return render(request, 'LoginAuthentication/home.html', context={'profesores': profesores, 'clases': clases})
 
 def logout_view(request):
     if request.method == 'POST':
