@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex items-center justify-center min-h-screen bg-blue-100 dark:bg-blue-900">
+        <div class="bg-gradient-to-br from-blue-400 to-blue-600 p-8 rounded-lg shadow-lg w-80">
+            <h2 class="text-2xl font-bold text-center text-black dark:text-white mb-6">Iniciar sesión</h2>
+            <form data-bitwarden-watching="1">
+                <div class="mb-4 relative">
+                    <input type="text" placeholder="Nombre de usuario" class="w-full p-3 rounded-lg border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-6 relative">
+                    <input type="password" placeholder="Tu Contraseña" id="password" class="w-full p-3 rounded-lg border border-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button type="button" id="togglePassword" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-zinc-400 dark:text-zinc-600">
+                        <img aria-hidden="true" alt="eye" src="/static/img/eye-closed.png" id="eyeIcon" crossorigin="anonymous">
+                    </button>
+                </div>
+                <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Iniciar sesión</button>
+                <a href="{% url 'recuperacion_cuenta' %}" class="text-center text-sm text-blue-500 dark:text-blue-300 mt-4">¿Has olvidado la contraseña?</a>
+            </form>
+        </div>
+    </div>
+    <script>
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            if (type === 'text') {
+                eyeIcon.src = '/static/img/eye-open.png';
+            } else {
+                eyeIcon.src = '/static/img/eye-closed.png';
+            }
+        });
+    </script>
+</body>
+</html>
