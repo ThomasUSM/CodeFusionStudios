@@ -136,3 +136,5 @@ AXES_FAILURE_LIMIT = 3  # Número de intentos fallidos permitidos antes del bloq
 AXES_COOLOFF_TIME = 1/120  # Duración del bloqueo en horas (1/120 horas = 30 segundos)
 AXES_LOCK_OUT_AT_FAILURE = True  # Bloquear después de alcanzar el límite de intentos fallidos
 AXES_LOCKOUT_PARAMETERS = ["ip_address", ["username", "user_agent"]]
+
+AUTH_USER_MODEL = 'LoginAuthentication.CustomUser'

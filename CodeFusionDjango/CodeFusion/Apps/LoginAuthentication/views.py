@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from axes.models import AccessAttempt
 from django.utils import timezone
+from django.http import JsonResponse
+from .models import CustomUser
 
 def index_view(request):
     return render(request, 'LoginAuthentication/index.html')
@@ -47,7 +49,8 @@ def login_view(request):
 
 @login_required
 def home_view(request):
-    return render(request, 'LoginAuthentication/home.html')
+    profesores = CustomUser.objects.filter(user_type='profesor')
+    return render(request, 'LoginAuthentication/home.html', context={'profesores': profesores})
 
 def logout_view(request):
     if request.method == 'POST':

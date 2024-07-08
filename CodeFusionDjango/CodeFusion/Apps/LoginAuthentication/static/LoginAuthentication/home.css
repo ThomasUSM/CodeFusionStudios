@@ -1,0 +1,45 @@
+/*body{
+    background-color: #1E3A8A;
+    margin:0;
+    padding:0;
+}
+*/
+/* NAVBAR */
+.navbar{
+    padding: 20px;
+    display:flex;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+
+.navbar a:link{
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.navbar a:visited{
+    text-decoration: inherit;
+    color: inherit;
+}
+
+/* CARD LIST */
+.card-list{
+    display:flex;
+    padding: 20px;
+}
+
+
+/* CARD */
+.card{
+    height:300px;
+    width:200px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card img{
+    height:200px;
+    width:200px;
+    border-start-start-radius: 20px;
+    border-top-right-radius: 20px;
+}
